@@ -4,21 +4,19 @@ type rangeStars =  {
   count: number,
 }
 
-function Stars({count}:rangeStars) {
-  console.log(count);
-  
+function Stars({count}:rangeStars) {  
   if (count<1 || count>5) {
     return null
   } else {
-
-    const arr = Array(count)
+    const arr = new Array(count).fill('')
+    
     return (
-      <ul>
-        {arr.map(((i) =>
-        <li key={i}>
-          <Star />
-        </li>
-      ))}  
+      <ul className="stars-list">
+        {arr.map((_, i) =>
+          <li key={i}>
+            <Star />
+          </li>
+        )}  
       </ul>
     )
   }
